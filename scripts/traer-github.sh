@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# DIBUJEITOR PRO — trae el trabajo desde GitHub.
+# DIBUJEITOR TV — trae el trabajo desde GitHub.
 #
 # Uso:  bash scripts/traer-github.sh
 #
@@ -18,7 +18,7 @@ fi
 
 if ! git remote get-url "$REMOTE" >/dev/null 2>&1; then
   echo "✗ No hay remote '$REMOTE'. Agregá uno con:"
-  echo "  git remote add $REMOTE https://github.com/GabrielYuvone/Dibujeitor-tv.git"
+  echo "  git remote add $REMOTE https://github.com/GabrielYuvone/dibujeitor2000.git"
   exit 1
 fi
 

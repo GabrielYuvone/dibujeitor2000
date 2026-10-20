@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# DIBUJEITOR PRO — guarda el trabajo y lo sube a GitHub.
+# DIBUJEITOR TV — guarda el trabajo y lo sube a GitHub.
 #
 # Uso:  bash scripts/guardar-github.sh ["mensaje del commit"]
 #
@@ -10,7 +10,7 @@ cd "$(dirname "$0")/.."
 
 REMOTE="${DIBUJEITOR_REMOTE:-origin}"
 BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo main)"
-MESSAGE="${1:-Actualización de DIBUJEITOR PRO}"
+MESSAGE="${1:-Actualización de DIBUJEITOR TV}"
 
 if ! git rev-parse --git-dir >/dev/null 2>&1; then
   echo "✗ No es un repositorio git. Ejecutá 'git init' primero."
@@ -32,5 +32,5 @@ if git remote get-url "$REMOTE" >/dev/null 2>&1; then
   echo "✓ Subido a $REMOTE/$BRANCH"
 else
   echo "! No hay remote '$REMOTE'. Agregá uno con:"
-  echo "  git remote add $REMOTE https://github.com/GabrielYuvone/Dibujeitor-tv.git"
+  echo "  git remote add $REMOTE https://github.com/GabrielYuvone/dibujeitor2000.git"
 fi

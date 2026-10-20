@@ -1,0 +1,135 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Tema de la edición TVPaint-like:
+ * grises compactos, bordes marcados y acentos fríos, como el que usa
+ * TVPaint 12 en su vista de una sola ventana.
+ */
+:root {
+  --background: #26282e;
+  --foreground: #d9dce3;
+  --card: #2e3138;
+  --card-foreground: #d9dce3;
+  --popover: #31343c;
+  --popover-foreground: #d9dce3;
+  --primary: #4a9ee0;
+  --primary-foreground: #0d1117;
+  --secondary: #3a3e47;
+  --secondary-foreground: #d3d7df;
+  --muted: #33363e;
+  --muted-foreground: #8d94a2;
+  --accent: #454a55;
+  --accent-foreground: #e6e9ef;
+  --destructive: #d94848;
+  --destructive-foreground: #fff1f1;
+  --border: #474b55;
+  --input: #3a3e47;
+  --ring: #4a9ee0;
+  --radius: 0.25rem;
+
+  /* Específicos de la interfaz de animación */
+  --tv-canvas: #191b1f;
+  --tv-playhead: #e0483d;
+  --tv-onion-prev: #00b140;
+  --tv-onion-next: #ff7a00;
+  --tv-timeline: #22242a;
+  --tv-selected: #2f4f6d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+  }
+
+  /* Los paneles de TVPaint son compactos: tipografía chica y densa. */
+  button {
+    font-size: 11px;
+  }
+}
+
+@layer utilities {
+  .tv-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+
+  .tv-panel-title {
+    @apply flex items-center justify-between px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground;
+    background: linear-gradient(180deg, #3a3e47, #32353c);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tv-icon-btn {
+    @apply grid place-items-center rounded-[3px] border border-transparent text-muted-foreground transition-colors;
+    width: 26px;
+    height: 24px;
+  }
+
+  .tv-icon-btn:hover {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  .tv-icon-btn[data-active="true"] {
+    background: var(--tv-selected);
+    border-color: #4a9ee0;
+    color: #eaf4ff;
+  }
+
+  .tv-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #5a5f6a transparent;
+  }
+
+  .tv-scroll::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+
+  .tv-scroll::-webkit-scrollbar-thumb {
+    background: #545963;
+    border-radius: 6px;
+  }
+}

@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+dist/
+coverage/
+.env*
+!.env.example
+*.log
+.DS_Store
+next-env.d.ts
+tsconfig.tsbuildinfo
+public/ffmpeg/core/
+public/ffmpeg/core-mt/
+public/ffmpeg/ffmpeg/
